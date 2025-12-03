@@ -1,0 +1,46 @@
+.button-to-about-me{
+  scroll-behavior: smooth;
+  position: relative;
+  animation-name: up-and-down;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes up-and-down{
+  0% {top: -10px;}
+  25% {top: 10px;}
+  50% {top: -10px;}
+  75% {top: 10px;}
+  100% {top: -10px;}
+}
+
+
+.radio{
+  border-radius: 25px;
+}
+
+
+:host ::ng-deep .about-me-img img{
+  width: 78.125rem;
+  height: 22rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+::ng-deep .p-card {
+  @apply bg-[#141E32];
+}
+
+::ng-deep .p-card .p-card-header{
+  @apply pt-4;
+  @apply px-4;
+}
+
+::ng-deep .p-chip{
+  @apply bg-[#132443];
+}
+
+::ng-deep .p-card .p-card-title{
+  @apply text-white;
+  @apply font-medium
+}

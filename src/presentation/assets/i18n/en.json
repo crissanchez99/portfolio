@@ -1,0 +1,31 @@
+{
+  "home_component": {
+    "job_possition": "Frontend Developer",
+    "title": "Hi, I'm Cris Sánchez",
+    "subtitle": "I develop responsive web and movile experiences with clean architecture and following SOLID principles.",
+    "buttons": {
+      "contact_button": "Get in Touch",
+      "projects_button": "View Projects"
+    },
+    "about_me":{
+      "title": "About Me",
+      "text_about_me": "Soy desarrolladora Frontend en Angular/Ionic. Me he formado como Desarrolladora de Aplicaciones Multiplataforma en Progresa Formación y he podido realizar el Academy en Rudo Apps, marca Laberit. \n \nEn mi paso por el Academy de Rudo he aprendido a aplicar la Arquitectura Clean y respetar los principios SOLID. Además, para interacturan con GitHub he usado la herramienta Sourcetree y Bitbucket. También usado las librerias de Ionic, Tailwind CSS y PrimeNG entre otras.",
+      "cards": {
+        "first_card": {
+          "title": "Clean Code",
+          "message": "Writing maintainable, scalable, and well-documented code"
+        },
+        "second_card": {
+          "title": "Pixel Perfect",
+          "message": "Translating designs into flawless user interfaces"
+        },
+        "third_card": {
+          "title": "Performance",
+          "message": "Optimizing for speed and seamless user experiences"
+        }
+
+      }
+    }
+
+  }
+}

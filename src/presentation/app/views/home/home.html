@@ -1,0 +1,68 @@
+<div class="py-20 px-10">
+  <div class=" pb-20">
+    <div class="flex justify-center p-8">
+      <p-button [unstyled]="true" class="bg-[#091938] text-[#4993E8] border border-[#4993E8] rounded-full p-3 font-sans py-2 px-4">{{'home_component.job_possition' | translate}}</p-button>
+    </div>
+    <div class="flex flex-col text-center">
+      <h1 class="text-6xl font-semibold mb-6 text-white">{{'home_component.title' | translate}}</h1>
+      <p class="text-3xl mb-12 text-white">{{'home_component.subtitle' | translate}}</p>
+    </div>
+    <div class="flex items-center justify-center gap-4 mb-12">
+      <p-button (click)="test()" [unstyled]="true" class="bg-[#2B7FFF] py-4 px-8 rounded-xl font-normal text-base text-white hover:bg-[#216cdd]" severity="info">{{'home_component.buttons.contact_button' | translate}}</p-button>
+      <p-button [unstyled]="true" class="bg-[#1D293D] py-4 px-8 rounded-xl font-normal text-base text-white hover:bg-[#081124]">{{'home_component.buttons.projects_button' | translate}}</p-button>
+    </div>
+    <div class="flex justify-center gap-6">
+      <p-image [src]="iconGitHub" class="w-6 h-6"/>
+      <p-image [src]="iconLinkedin" class="w-6 h-6"/>
+      <p-image [src]="iconEmail" class="w-6 h-6"/>
+    </div>
+  </div>
+
+  <div class="flex justify-center">
+    <p-button icon="pi pi-angle-down" (click)="scrollToAboutMe(target)" [rounded]="true" [text]="true" severity="secondary" class="text-4xl button-to-about-me"></p-button>
+  </div>
+
+  <div #target class="flex flex-col items-center py-20">
+    <h2 class="text-5xl font-medium text-white mb-16">{{'home_component.about_me.title' | translate}}</h2>
+    <div class="flex sm:flex-nowrap flex-wrap justify-between items-center gap-8 pb-16">
+      <div class="h-[22rem]">
+        <p-image [src]="aboutMe" class="object-cover about-me-img"></p-image>
+      </div>
+      <p class="text-white text-justify whitespace-pre-line">{{'home_component.about_me.text_about_me' | translate}}</p>
+    </div>
+
+    <div class="flex sm:flex-nowrap flex-wrap justify-between gap-8 ">
+      <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
+        <ng-template #header class="header-card">
+          <p-chip class="bg-[#132443] rounded-lg">
+            <i class="pi pi-code text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
+          </p-chip>
+        </ng-template>
+        <ng-template #title class="text-white">{{'home_component.about_me.cards.first_card.title' | translate}}</ng-template>
+        <p>{{'home_component.about_me.cards.first_card.message' | translate}}</p>
+      </p-card>
+      <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
+        <ng-template #header class="header-card">
+          <p-chip class="bg-[#132443] rounded-lg">
+            <i class="pi pi-palette text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
+          </p-chip>
+        </ng-template>
+        <ng-template #title class="text-white">{{'home_component.about_me.cards.second_card.title' | translate}}</ng-template>
+        <p>{{'home_component.about_me.cards.second_card.message' | translate}}</p>
+      </p-card>
+      <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
+        <ng-template #header class="header-card">
+          <p-chip class="bg-[#132443] rounded-lg">
+            <i class="pi pi-bolt text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
+          </p-chip>
+        </ng-template>
+        <ng-template #title class="text-white">{{'home_component.about_me.cards.third_card.title' | translate}}</ng-template>
+        <p>{{'home_component.about_me.cards.third_card.message' | translate}}</p>
+      </p-card>
+    </div>
+  </div>
+
+
+
+
+</div>  

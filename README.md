@@ -40,11 +40,11 @@ This project does not yet have any tests that can be run
 
 ## Versioning ��
 
-We will use a manual versioning of the app incrementing the value of the version with each upload to master.
+I will use a manual versioning of the app incrementing the value of the version with each upload to master.
 
 ## Authors ✒️
 
-* **Cristina Sánchez** - *Angular/Ionic Developer* - [cristinasanchezvivves99@gmail](cristinasanchezvivves99@gmail)
+* **Cristina Sánchez** - *Angular/Ionic Developer* - [cristinasanchezvivves99@gmail](cristinasanchezvivves99@gmail.com)
 
 
 ---

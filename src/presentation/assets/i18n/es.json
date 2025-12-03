@@ -1,0 +1,15 @@
+{
+  "home_component": {
+    "job_possition": "Frontend Developer",
+    "title": "Hola, soy Cris Sánchez",
+    "subtitle": "Desarrollo responsive webs y movile con experiencia usando arquitectura clean y siguiendo los principios SOLID.",
+    "buttons": {
+      "contact_button": "Contactame",
+      "projects_bitton": "Ver Proyectos"
+    },
+    "about_me":{
+      "title": "Sobre mí",
+      "text-about-me": "Soy desarrolladora Frontend en Angular/Ionic. Me he formado como Desarrolladora de Aplicaciones Multiplataforma en Progresa Formación y he podido realizar el Academy en Rudo Apps, marca Laberit. \n Durante esta formación "
+    }
+  }
+}

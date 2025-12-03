@@ -1,0 +1,4 @@
+{
+  "componentsPath": "ng g @spartan-ng/cli:ui button",
+  "importAlias": "@spartan-ng/helm"
+}
