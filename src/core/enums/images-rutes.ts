@@ -2,5 +2,17 @@ export enum ImagesRutes{
   iconGitHub = 'assets/images/icons/github.png',
   iconLinkedin = 'assets/images/icons/linkedin.png',
   iconEmail = 'assets/images/icons/email.png',
-  aboutMe = 'assets/images/about-me.png'
+  aboutMe = 'assets/images/about-me.png',
+  typeScript = 'assets/images/typeScript.svg',
+  json = 'assets/images/json.svg',
+  tailwind = 'assets/images/tailwind_css.svg',
+  angular = 'assets/images/angular.svg',
+  ionic = 'assets/images/ionic.svg',
+  capacitor = 'assets/images/capacitor.svg',
+  git = 'assets/images/gitHub.svg',
+  figma = 'assets/images/figma.svg',
+  postman = 'assets/images/postman.svg',
+  testing = 'assets/images/jest.svg',
+  rickNMorty = 'assets/images/imgRnM.svg',
+  bookish = 'assets/images/bookish.png',
 }

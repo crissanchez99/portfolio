@@ -1,15 +1,93 @@
 {
   "home_component": {
-    "job_possition": "Frontend Developer",
-    "title": "Hola, soy Cris Sánchez",
-    "subtitle": "Desarrollo responsive webs y movile con experiencia usando arquitectura clean y siguiendo los principios SOLID.",
+    "languages": {
+      "english": "Inglés",
+      "spanish": "Español"
+    },
+    "job_possition": "Desarrolladora Frontend",
+    "title": {
+      "greeting": "Hola, soy ",
+      "name": "Cris Sánchez"
+    },
+    "subtitle": "Desarrollo experiencias de usuario tanto en apps de móvil como en web responsive las cuales siguen una arquitectura clean y los principios SOLID.",
     "buttons": {
-      "contact_button": "Contactame",
-      "projects_bitton": "Ver Proyectos"
+      "contact_button": "Contáctame",
+      "projects_button": "Ver Proyectos"
     },
     "about_me":{
       "title": "Sobre mí",
-      "text-about-me": "Soy desarrolladora Frontend en Angular/Ionic. Me he formado como Desarrolladora de Aplicaciones Multiplataforma en Progresa Formación y he podido realizar el Academy en Rudo Apps, marca Laberit. \n Durante esta formación "
+      "text_about_me": "Soy desarrolladora Frontend me he formado en Progresa Formación como Desarrolladora de Aplicaciones Multiplataforma. He podido realizar el Academy en Rudo Apps, marca de Laberit. \n \nDurante mis estudios destaco el proyecto final donde utilicé el Angular e Ionic para el frontend y para el backend usé Node.js y como base de datos MongoDB. \n \nEn mi paso por el Academy de Rudo he aprendido a aplicar la Arquitectura Clean y respetar los principios SOLID. Además, para interacturan con GitHub he usado la herramienta Sourcetree y Bitbucket. También usado las librerias de Ionic, Tailwind CSS y PrimeNG entre otras. \n \n",
+      "cards": {
+        "first_card": {
+          "title": "Clean Code",
+          "message": "Aplicar los principios SOLID y la Arquitectura Clean."
+        },
+        "second_card": {
+          "title": "Pixel Perfect",
+          "message": "Implementar diseños de Figma usando Tailwind Css."
+        },
+        "third_card": {
+          "title": "Versiones",
+          "message": "Control de versiones con Sourcetree y Bitbucket."
+        }
+      }
+    },
+    "skills_technologies":{
+      "title": "Habilidades y Technologías",
+      "cards": {
+        "first_card": {
+          "title": "Frontend"
+        },
+        "second_card": {
+          "title": "Herramientas & Otros"
+        }
+      }
+    },
+    "featured_projects":{
+      "title": "Proyectos Destacados",
+      "cards": {
+        "first_card": {
+          "title": "Rick & Morty",
+          "message": "Proyecto hecho con Ionic Project aplicando la Arquitectura Clean, debes iniciar sesión para poder ver todos los personajes de Rick & Morty, filtrarlos por nombre o estado y guardalos como favoritos."
+        },
+        "second_card": {
+          "title": "Bookish",
+          "message": "Proyecto hecho con Ionic Project, actualemnete se está rehaciendo para seguir la Arquitectura Clean. Bookish es una app para venta de libros online. También es necesario iniciar sesión para poder comprar los libros. En caso de no tener cuanta el usuario deberá registrarse. Hay dos tipos de usuarios, el administrador el cual puede agregar libros a la base de datos y el usuario de tipo cliente el cual puede comprar los libros."
+        }
+      }
+    },
+    "get_in_touch": {
+      "title": "Contáctame",
+      "contact": {
+        "text": "Hablemos",
+        "email": {
+          "label": "Email",
+          "personal_email": "cris@example.com"
+        },
+        "location": {
+          "label": "Localización",
+          "personal_location": "Valencia, Spain"
+        }
+      },
+      "form": {
+        "input_name": {
+          "label": "Nombre",
+          "placeholder": "Escribe aquí..."
+        },
+        "input_email": {
+          "label": "Email",
+          "placeholder": "email@example.com"
+        },
+        "input_message": {
+          "label": "Mensaje",
+          "placeholder": "En qué te puedo ayudar..."
+        },
+        "button_submit": "Enviar Mensaje",
+        "message_on_submit": {
+          "success_message": "Tu mensaje ha sido enviado.",
+          "error_message": ""
+        }
+      }
     }
   }
 }

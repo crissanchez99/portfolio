@@ -20,27 +20,81 @@
 }
 
 
-:host ::ng-deep .about-me-img img{
+::ng-deep .about-me-img img{
   width: 78.125rem;
   height: 22rem;
   object-fit: cover;
   border-radius: 1.5rem;
 }
 
-::ng-deep .p-card {
+::ng-deep .ukFlag img{
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+::ng-deep .spainFlag img{
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+.chip-language{
+  background: none
+}
+
+.p-card {
   @apply bg-[#141E32];
 }
 
-::ng-deep .p-card .p-card-header{
+::ng-deep .p-card .p-card-header .card-about-me{
   @apply pt-4;
   @apply px-4;
 }
 
-::ng-deep .p-chip{
+.chip-about-me{
   @apply bg-[#132443];
+  @apply text-white;
+  @apply mt-4;
+  @apply mx-4;
+}
+
+.chip-skills-technolgies{
+  @apply bg-[#132443];
+  @apply text-white;
 }
 
 ::ng-deep .p-card .p-card-title{
   @apply text-white;
-  @apply font-medium
+  @apply font-medium;
+  @apply break-words;
+}
+
+::ng-deep .p-card .p-card-header .card-feature-projects{
+  @apply rounded-t-3xl;
+}
+
+.img-feature-projects{
+  @apply rounded-t-xl;
+}
+
+.img-feature-projects:hover{
+  @apply rounded-t-xl;
+  @apply transform;
+  @apply scale-110;
+  @apply object-cover;
+  @apply ease-in-out;
+  @apply duration-700;
+}
+
+.chip-featured-projects{
+  @apply text-[#4993EA];
+  @apply bg-[#132443];
+}
+
+.chip-get-in-touch{
+  @apply bg-[#132443];
+  @apply mr-4;
 }

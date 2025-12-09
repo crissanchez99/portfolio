@@ -1,15 +1,27 @@
+<div class="absolute top-4 right-4">
+  @for (language of languages; track $index) {
+    <p-chip class="chip-language" (click)="changeLanguage(language.language)">
+      <div class="object-cover">
+        <p-image [src]="language.img" class="flex content-center ukFlag"/>
+      </div>
+    </p-chip>
+  }
+</div>
 <div class="py-20 px-10">
   <div class=" pb-20">
     <div class="flex justify-center p-8">
       <p-button [unstyled]="true" class="bg-[#091938] text-[#4993E8] border border-[#4993E8] rounded-full p-3 font-sans py-2 px-4">{{'home_component.job_possition' | translate}}</p-button>
     </div>
     <div class="flex flex-col text-center">
-      <h1 class="text-6xl font-semibold mb-6 text-white">{{'home_component.title' | translate}}</h1>
-      <p class="text-3xl mb-12 text-white">{{'home_component.subtitle' | translate}}</p>
+      <h1 class="text-6xl font-semibold mb-6 text-white">
+        {{'home_component.title.greeting' | translate}} 
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#589FFF] to-[#AC49FF]">{{'home_component.title.name' | translate}}</span>
+      </h1>
+      <p class="text-3xl mb-12 sm:px-52 text-white">{{'home_component.subtitle' | translate}}</p>
     </div>
-    <div class="flex items-center justify-center gap-4 mb-12">
-      <p-button (click)="test()" [unstyled]="true" class="bg-[#2B7FFF] py-4 px-8 rounded-xl font-normal text-base text-white hover:bg-[#216cdd]" severity="info">{{'home_component.buttons.contact_button' | translate}}</p-button>
-      <p-button [unstyled]="true" class="bg-[#1D293D] py-4 px-8 rounded-xl font-normal text-base text-white hover:bg-[#081124]">{{'home_component.buttons.projects_button' | translate}}</p-button>
+    <div class="flex items-center content-center justify-center gap-4 mb-12 h-20 sm:h-full">
+      <p-button (click)="scrollToAboutMe(getInTouch)" [unstyled]="true" class="flex bg-[#2B7FFF] py-4 px-8 h-full rounded-xl font-normal text-base text-white hover:bg-[#649FF7]" severity="info">{{'home_component.buttons.contact_button' | translate}}</p-button>
+      <p-button (click)="scrollToAboutMe(projects)" [unstyled]="true" class="flex bg-[#1D293D] py-4 px-8 h-full rounded-xl font-normal text-base text-white hover:bg-[#2F4262]">{{'home_component.buttons.projects_button' | translate}}</p-button>
     </div>
     <div class="flex justify-center gap-6">
       <p-image [src]="iconGitHub" class="w-6 h-6"/>
@@ -19,50 +31,129 @@
   </div>
 
   <div class="flex justify-center">
-    <p-button icon="pi pi-angle-down" (click)="scrollToAboutMe(target)" [rounded]="true" [text]="true" severity="secondary" class="text-4xl button-to-about-me"></p-button>
+    <p-button icon="pi pi-angle-down" (click)="scrollToAboutMe(aboutMe)" [rounded]="true" [text]="true" severity="secondary" class="text-4xl button-to-about-me"></p-button>
   </div>
 
-  <div #target class="flex flex-col items-center py-20">
-    <h2 class="text-5xl font-medium text-white mb-16">{{'home_component.about_me.title' | translate}}</h2>
+  <div #aboutMe class="flex flex-col items-center py-20">
+    <h2 class="text-5xl font-medium text-center text-white mb-16">{{'home_component.about_me.title' | translate}}</h2>
     <div class="flex sm:flex-nowrap flex-wrap justify-between items-center gap-8 pb-16">
       <div class="h-[22rem]">
-        <p-image [src]="aboutMe" class="object-cover about-me-img"></p-image>
+        <p-image [src]="aboutMeImg" class="about-me-img"/>
       </div>
       <p class="text-white text-justify whitespace-pre-line">{{'home_component.about_me.text_about_me' | translate}}</p>
     </div>
 
-    <div class="flex sm:flex-nowrap flex-wrap justify-between gap-8 ">
-      <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
-        <ng-template #header class="header-card">
-          <p-chip class="bg-[#132443] rounded-lg">
+    <div class="flex sm:flex-nowrap flex-wrap justify-around w-full gap-4">
+
+      @for (card of cardsAboutMe; track $index) {
+        <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
+        <ng-template #header>
+          <p-chip class="bg-[#132443] rounded-lg chip-about-me">
+            <!--OJOOO CON EL ICONO TODAS LAS CARTAS TIENEN EL MISMO, MIRAR SI HAY FORMA DE CAMBIARLO-->
             <i class="pi pi-code text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
           </p-chip>
         </ng-template>
-        <ng-template #title class="text-white">{{'home_component.about_me.cards.first_card.title' | translate}}</ng-template>
-        <p>{{'home_component.about_me.cards.first_card.message' | translate}}</p>
+        <ng-template #title class="text-white">{{card.title}}</ng-template>
+        <p class="text-[#8D9EB6] break-words">{{card.message}}</p>
       </p-card>
-      <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
-        <ng-template #header class="header-card">
-          <p-chip class="bg-[#132443] rounded-lg">
-            <i class="pi pi-palette text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
-          </p-chip>
-        </ng-template>
-        <ng-template #title class="text-white">{{'home_component.about_me.cards.second_card.title' | translate}}</ng-template>
-        <p>{{'home_component.about_me.cards.second_card.message' | translate}}</p>
-      </p-card>
-      <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
-        <ng-template #header class="header-card">
-          <p-chip class="bg-[#132443] rounded-lg">
-            <i class="pi pi-bolt text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
-          </p-chip>
-        </ng-template>
-        <ng-template #title class="text-white">{{'home_component.about_me.cards.third_card.title' | translate}}</ng-template>
-        <p>{{'home_component.about_me.cards.third_card.message' | translate}}</p>
-      </p-card>
+      }
     </div>
   </div>
 
+  <div class="flex flex-col items-center py-20">
+    <h2 class="text-5xl font-medium text-center text-white mb-16">{{'home_component.skills_technologies.title' | translate}}</h2>
+    <div class="flex sm:flex-nowrap flex-wrap justify-between gap-16">
 
+      @for (card of cardsSkillsTechnolgies; track $index) {
+        <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
+        <ng-template #title class="text-white">{{card.title}}</ng-template>
+        <div class="flex flex-wrap gap-2">
 
+          @for (tech of card.technologia; track $index) {
+            @if (tech.icon) {
+              <p-chip [label]="tech.name" class="border border-[#4993EA] chip-skills-technolgies">
+                <p-image [src]="tech.icon" class="w-6"/>
+              </p-chip>
+            }@else {
+              <p-chip [label]="tech.name" class="border border-[#4993EA] chip-skills-technolgies"></p-chip>
+            }
+          }
+        </div>
+      </p-card>
+      }
+    </div>
+  </div>
+
+  <div #projects class="flex flex-col items-center py-20">
+    <h2 class="text-5xl font-medium text-center text-white mb-16">{{'home_component.featured_projects.title' | translate}}</h2>
+    <div class="flex sm:flex-nowrap flex-wrap gap-16">
+      @for (card of cardsFeaturedProjects; track $index) {
+        <p-card class="w-auto card-feature-projects max-w-96">
+        <ng-template #header class="header-feature-projects">
+          <div class="overflow-hidden rounded-t-xl">
+            <img [src]="card.image" class="img-feature-projects"/>
+          </div>
+        </ng-template>
+        <ng-template #title>{{card.title}}</ng-template>
+        <p class="text-[#8D9EB6] text-justify break-words">{{card.message}}</p>
+        <div class="py-4 flex flex-wrap gap-4">
+          @for (tech of card.technologia; track $index) {
+            <p-tag [value]="tech.name" class="chip-featured-projects"/>
+          }
+        </div>
+        <div class="flex justify-center">
+          <p-button [label]="git" icon="pi pi-github" variant="text" class="text-white"></p-button>
+        </div>
+      </p-card>
+      }
+    </div>
+  </div>
+
+  <div #getInTouch class="flex flex-col items-center py-20">
+    <h2 class="text-5xl font-medium text-center text-white mb-16">{{'home_component.get_in_touch.title' | translate}}</h2>
+    <div class="flex flex-wrap sm:flex-nowrap sm:justify-between w-full">
+
+      <div>
+        <h3 class="text-white text-3xl pb-5">{{'home_component.get_in_touch.contact.text' | translate}}</h3>
+        <div class="flex justify-start pb-4">
+          <p-chip class="rounded-lg chip-get-in-touch">
+            <i class="pi pi-envelope text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
+          </p-chip>
+          <div>
+            <p class="text-white font-semibold">{{'home_component.get_in_touch.contact.email.label' | translate}}</p>
+            <p class="text-[#8D9EB6]">{{'home_component.get_in_touch.contact.email.personal_email' | translate}}</p>
+          </div>
+        </div>
+        <div class="flex justify-start p">
+          <p-chip class="rounded-lg chip-get-in-touch">
+            <i class="pi pi-map-marker text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
+          </p-chip>
+          <div>
+            <p class="text-white font-semibold">{{'home_component.get_in_touch.contact.location.label' | translate}}</p>
+            <p class="text-[#8D9EB6]">{{'home_component.get_in_touch.contact.location.personal_location' | translate}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-[38.5rem]">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="py-2">
+            <p class="text-white pb-2">{{'home_component.get_in_touch.form.input_name.label' | translate}}</p>
+            <input pInputText formControlName="name" [placeholder]="namePlaceholderForm" class="text-[#8D9EB6] bg-[#1D293D] border border-[#314158] py-3 px-4 rounded-xl w-full"/>
+          </div>
+          <div class="py-2">
+            <p class="text-white pb-2">{{'home_component.get_in_touch.form.input_email.label' | translate}}</p>
+            <input pInputText formControlName="email" [placeholder]="emailPlaceholderForm" class="text-[#8D9EB6] bg-[#1D293D] border border-[#314158] py-3 px-4 rounded-xl w-full"/>
+          </div>
+          <div class="pt-2 pb-10">
+            <p class="text-white pb-2">{{'home_component.get_in_touch.form.input_message.label' | translate}}</p>
+            <textarea formControlName="message" rows="5"  pTextarea [placeholder]="messagePlaceholderForm" class="text-[#8D9EB6] bg-[#1D293D] border border-[#314158] py-3 px-4 rounded-xl w-full"></textarea>
+          </div>
+          <p-button [unstyled]="true" class="bg-[#2B7FFF] p-3 rounded-xl text-white buttonOnSubmit flex justify-center">{{'home_component.get_in_touch.form.button_submit' | translate}}</p-button>
+        </form>
+      </div>
+
+    </div>
+  </div>
 
 </div>  

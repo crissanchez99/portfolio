@@ -1,7 +1,14 @@
 {
   "home_component": {
+    "languages": {
+      "english": "English",
+      "spanish": "Spanish"
+    },
     "job_possition": "Frontend Developer",
-    "title": "Hi, I'm Cris Sánchez",
+    "title": {
+      "greeting": "Hi, I'm ",
+      "name": "Cris Sánchez"
+    },
     "subtitle": "I develop responsive web and movile experiences with clean architecture and following SOLID principles.",
     "buttons": {
       "contact_button": "Get in Touch",
@@ -9,21 +16,73 @@
     },
     "about_me":{
       "title": "About Me",
-      "text_about_me": "Soy desarrolladora Frontend en Angular/Ionic. Me he formado como Desarrolladora de Aplicaciones Multiplataforma en Progresa Formación y he podido realizar el Academy en Rudo Apps, marca Laberit. \n \nEn mi paso por el Academy de Rudo he aprendido a aplicar la Arquitectura Clean y respetar los principios SOLID. Además, para interacturan con GitHub he usado la herramienta Sourcetree y Bitbucket. También usado las librerias de Ionic, Tailwind CSS y PrimeNG entre otras.",
+      "text_about_me": "I am a Frontend Angular/Ionic developer. I studied Multiplatform Application Development in Progrsea Formación, I also have been able to internship in Lãberit, what they called Academy. \n \nDuring my studies I would like to stand out my final project where I used Angular and Ionic for the frontend and for the backend I used Node.js and as data base MongoDB. \n \nIn my pass at the Academy I learned to apply Clean Architecture and the SOLID principals. As well, to interact with Github and version control with Sourcetree and Bitbucket. For the app design I used libraries as Ionic, PrimeNg, Tailwind CSS among others.",
       "cards": {
         "first_card": {
           "title": "Clean Code",
-          "message": "Writing maintainable, scalable, and well-documented code"
+          "message": "Apply SOLID principals and Clean Architecture."
         },
         "second_card": {
-          "title": "Pixel Perfect",
-          "message": "Translating designs into flawless user interfaces"
+          "title": "Apps Design",
+          "message": "Implmenting Figma designs using Tailwind Css."
         },
         "third_card": {
-          "title": "Performance",
-          "message": "Optimizing for speed and seamless user experiences"
+          "title": "Versions",
+          "message": "Controlling versions by Sourcetree and Bitbucket."
         }
-
+      }
+    },
+    "skills_technologies":{
+      "title": "Skills & Technologies",
+      "cards": {
+        "first_card": {
+          "title": "Frontend"
+        },
+        "second_card": {
+          "title": "Tools & Others"
+        }
+      }
+    },
+    "featured_projects":{
+      "title": "Featured Projects",
+      "cards": {
+        "first_card": {
+          "title": "Rick & Morty",
+          "message": "Ionic Project done with clean architecture, where you have to log in to see all Rick & Morty characters, filter by name or status and save your favorite characters."
+        },
+        "second_card": {
+          "title": "Bookish",
+          "message": "Ionic Project it's being redone to follow clean architecture. This app is made to buy books online. You have to register and log in to enter and buy the books. There also two kind of user, the administrator user that is the one who can add more books to the data base and the customer user who can buy them. "
+        }
+      }
+    },
+    "get_in_touch": {
+      "title": "Get In Touch",
+      "contact": {
+        "text": "Let's talk",
+        "email": {
+          "label": "Email",
+          "personal_email": "cris@example.com"
+        },
+        "location": {
+          "label": "Location",
+          "personal_location": "Valencia, Spain"
+        }
+      },
+      "form": {
+        "input_name": {
+          "label": "Name",
+          "placeholder": "Your name"
+        },
+        "input_email": {
+          "label": "Email",
+          "placeholder": "email@example.com"
+        },
+        "input_message": {
+          "label": "Message",
+          "placeholder": "What can I help you with..."
+        },
+        "button_submit": "Send Message"
       }
     }
 
