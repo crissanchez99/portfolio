@@ -24,9 +24,15 @@
       <p-button (click)="scrollToAboutMe(projects)" [unstyled]="true" class="flex bg-[#1D293D] py-4 px-8 h-full rounded-xl font-normal text-base text-white hover:bg-[#2F4262]">{{'home_component.buttons.projects_button' | translate}}</p-button>
     </div>
     <div class="flex justify-center gap-6">
-      <p-image [src]="iconGitHub" class="w-6 h-6"/>
-      <p-image [src]="iconLinkedin" class="w-6 h-6"/>
-      <p-image [src]="iconEmail" class="w-6 h-6"/>
+      <div class="p-2 w-10 hover:bg-[#1D293D] rounded-lg">
+        <p-image [src]="iconGitHub" (click)="navigateTo(gitHubAccountUrl)"/>
+      </div>
+      <div class="p-2 w-10 hover:bg-[#1D293D] rounded-lg">
+        <p-image [src]="iconLinkedin" (click)="navigateTo(linkedinUrl)"/>
+      </div>
+      <div class="p-2 w-10 hover:bg-[#1D293D] rounded-lg">
+        <p-image [src]="iconEmail" (click)="navigateTo(mailUrl)"/>
+      </div>
     </div>
   </div>
 
@@ -94,16 +100,25 @@
             <img [src]="card.image" class="img-feature-projects"/>
           </div>
         </ng-template>
-        <ng-template #title>{{card.title}}</ng-template>
-        <p class="text-[#8D9EB6] text-justify break-words">{{card.message}}</p>
-        <div class="py-4 flex flex-wrap gap-4">
-          @for (tech of card.technologia; track $index) {
-            <p-tag [value]="tech.name" class="chip-featured-projects"/>
-          }
+
+        <div class="flex flex-col min-h-[28rem] justify-between">
+          <div>
+            <h3 class="text-white font-semibold text-xl pb-2">{{card.title}}</h3>
+            <p class="text-[#8D9EB6] text-justify break-words">{{card.message}}</p>
+            <div class="py-4 flex flex-wrap gap-4">
+              @for (tech of card.technologia; track $index) {
+                <p-tag [value]="tech.name" class="chip-featured-projects"/>
+              }
+            </div>
+          </div>
+
+          <div class="flex justify-center gap-4">
+            <p-button [label]="gitLabel" icon="pi pi-github" variant="text" class="buttonCardsFeaturedProjects" (click)="navigateTo(card.gitUrl!)"></p-button>
+            <p-button [label]="liveDemoLabel" icon="pi pi-eye" variant="text" class="buttonCardsFeaturedProjects" (click)="navigateTo(card.projectUrl!)"></p-button>
+          </div>
+
         </div>
-        <div class="flex justify-center">
-          <p-button [label]="git" icon="pi pi-github" variant="text" class="text-white"></p-button>
-        </div>
+
       </p-card>
       }
     </div>
@@ -136,20 +151,45 @@
       </div>
 
       <div class="w-[38.5rem]">
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <form action="https://formspree.io/f/xpwvjewg" method="post" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="py-2">
             <p class="text-white pb-2">{{'home_component.get_in_touch.form.input_name.label' | translate}}</p>
             <input pInputText formControlName="name" [placeholder]="namePlaceholderForm" class="text-[#8D9EB6] bg-[#1D293D] border border-[#314158] py-3 px-4 rounded-xl w-full"/>
+            @if (hasTriedSubmited && !name) {
+              <div class="my-2">
+                <p-message severity="warn" size="small" variant="simple" icon="pi pi-exclamation-triangle" class="text-xs">{{'home_component.get_in_touch.form.input_name.error_message' | translate}}</p-message>
+              </div>
+            }
           </div>
           <div class="py-2">
             <p class="text-white pb-2">{{'home_component.get_in_touch.form.input_email.label' | translate}}</p>
             <input pInputText formControlName="email" [placeholder]="emailPlaceholderForm" class="text-[#8D9EB6] bg-[#1D293D] border border-[#314158] py-3 px-4 rounded-xl w-full"/>
+            @if (hasTriedSubmited && !email) {
+              <div class="my-2">
+                <p-message severity="warn" size="small" variant="simple" icon="pi pi-exclamation-triangle" class="text-xs">{{'home_component.get_in_touch.form.input_email.error_message' | translate}}</p-message>
+              </div>
+            }
+            @if(hasTriedSubmited && contactForm.invalid && email){
+              <div class="my-2">
+                <p-message severity="warn" size="small" variant="simple" icon="pi pi-exclamation-triangle" class="text-xs">{{'home_component.get_in_touch.form.message_on_submit.error_message' | translate}}</p-message>
+              </div>
+            }
           </div>
           <div class="pt-2 pb-10">
             <p class="text-white pb-2">{{'home_component.get_in_touch.form.input_message.label' | translate}}</p>
             <textarea formControlName="message" rows="5"  pTextarea [placeholder]="messagePlaceholderForm" class="text-[#8D9EB6] bg-[#1D293D] border border-[#314158] py-3 px-4 rounded-xl w-full"></textarea>
+            @if (hasTriedSubmited && !message) {
+              <div class="my-2">
+                <p-message severity="warn" size="small" variant="simple" icon="pi pi-exclamation-triangle" class="text-xs">{{'home_component.get_in_touch.form.input_email.error_message' | translate}}</p-message>
+              </div>
+            }
           </div>
-          <p-button [unstyled]="true" class="bg-[#2B7FFF] p-3 rounded-xl text-white buttonOnSubmit flex justify-center">{{'home_component.get_in_touch.form.button_submit' | translate}}</p-button>
+          <p-button [unstyled]="true" class="bg-[#2B7FFF] p-3 rounded-xl text-white buttonOnSubmit flex justify-center" (click)="onSubmit()">{{'home_component.get_in_touch.form.button_submit' | translate}}</p-button>
+          @if(hasTriedSubmited && !contactForm.invalid){
+            <div class="my-2">
+              <p-message [life]="3000" severity="success" size="small" variant="simple" icon="pi pi-check-circle" class="text-xs">{{'home_component.get_in_touch.form.message_on_submit.success_message' | translate}}</p-message>
+            </div>
+          }
         </form>
       </div>
 

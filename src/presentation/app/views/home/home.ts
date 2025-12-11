@@ -5,15 +5,17 @@ import { ImageModule } from 'primeng/image';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
+import { MessageModule } from 'primeng/message';
 import { Tecnologies } from '../../../../core/enums/technolgies';
-import { CardEntity } from '../../../../domain/entities/card';
+import { CardAboutMeEntity, CardFeatureProjectsEntity, CardSkillsTechnology } from '../../../../domain/entities/card';
 import { TagModule } from 'primeng/tag';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LanguageEntity } from '../../../../domain/entities/language';
+import { url } from '../../../../core/enums/url';
 
 @Component({
   selector: 'app-home',
-  imports: [TranslatePipe, ImageModule, ButtonModule, CardModule, ChipModule, TagModule, FormsModule, ReactiveFormsModule],
+  imports: [TranslatePipe, ImageModule, ButtonModule, CardModule, ChipModule, TagModule, FormsModule, ReactiveFormsModule,MessageModule ],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -22,7 +24,15 @@ export class HomePage implements OnInit{
   protected languageIsChanged: boolean = false;
   protected languages: LanguageEntity[] = [];
   protected englishLanguage!: string;
-  protected spanishLanguage!: string; 
+  protected spanishLanguage!: string;
+
+  protected gitHubAccountUrl: string = url.gitHubAccountUrl;
+  protected linkedinUrl: string = url.linkedinUrl;
+  protected mailUrl: string = url.mailUrl;
+  protected rickNMortyGitUrl: string = url.rickNMortyGitUrl;
+  protected bookishGitUrl: string = url.bookishGitUrl;
+  protected rickNMortyProjectUrl: string = url.rickNMortyProjectUrl;
+  protected bookishProjectUrl: string = url.bookishProjectUrl;
 
   protected iconGitHub: string = ImagesRutes.iconGitHub;
   protected iconLinkedin: string  = ImagesRutes.iconLinkedin;
@@ -41,29 +51,31 @@ export class HomePage implements OnInit{
   protected rickNMortyImg: string = ImagesRutes.rickNMorty;
   protected bookishImg: string = ImagesRutes.bookish;
 
-  protected htmlCss = Tecnologies.htmlCss;
-  protected typeScript = Tecnologies.typeScript;
-  protected json = Tecnologies.json;
-  protected tailwind = Tecnologies.tailwind;
-  protected angular = Tecnologies.angular;
-  protected ionic = Tecnologies.ionic;
-  protected capacitor = Tecnologies.capacitor;
-  protected primeNg = Tecnologies.primeNg;
-  protected git = Tecnologies.git;
-  protected figma = Tecnologies.figma
-  protected restApi = Tecnologies.restApi;
-  protected postman = Tecnologies.postman;
-  protected testing = Tecnologies.testing;
+  protected htmlCssLabel = Tecnologies.htmlCss;
+  protected typeScriptLabel = Tecnologies.typeScript;
+  protected jsonLabel = Tecnologies.json;
+  protected tailwindLabel = Tecnologies.tailwind;
+  protected angularLabel = Tecnologies.angular;
+  protected ionicLabel = Tecnologies.ionic;
+  protected capacitorLabel = Tecnologies.capacitor;
+  protected primeNgLabel = Tecnologies.primeNg;
+  protected gitLabel = Tecnologies.git;
+  protected figmaLabel = Tecnologies.figma
+  protected restApiLabel = Tecnologies.restApi;
+  protected postmanLabel = Tecnologies.postman;
+  protected testingLabel = Tecnologies.testing;
+  protected liveDemoLabel = Tecnologies.liveDemo;
 
-  protected cardsAboutMe: CardEntity[] = [];
-  protected cardsSkillsTechnolgies: CardEntity[] = [];
-  protected cardsFeaturedProjects: CardEntity[] = [];
+  protected cardsAboutMe: CardAboutMeEntity[] = [];
+  protected cardsSkillsTechnolgies: CardSkillsTechnology[] = [];
+  protected cardsFeaturedProjects: CardFeatureProjectsEntity[] = [];
 
   private formBuilder: FormBuilder = inject(FormBuilder);
   protected namePlaceholderForm!: string;
   protected emailPlaceholderForm!: string;
   protected messagePlaceholderForm!: string;
-  //protected messageOnSubmit!: string;
+  protected hasBeenSubmit: boolean = false;
+  protected hasTriedSubmited: boolean = false;
 
   contactForm: FormGroup = this.formBuilder.group({
     name: [``, Validators.required],
@@ -84,6 +96,7 @@ export class HomePage implements OnInit{
     })
   }
 
+  //cards ENUM
  private loadCards(){
   this.cardsAboutMe = [
   {
@@ -108,34 +121,34 @@ export class HomePage implements OnInit{
     title: this.translateService.instant('home_component.skills_technologies.cards.first_card.title'),
     technologia: [
       {
-        name: this.htmlCss,
+        name: this.htmlCssLabel,
       },
       {
-        name: this.json,
+        name: this.jsonLabel,
         icon: this.jsonImg
       },
       {
-        name: this.typeScript,
+        name: this.typeScriptLabel,
         icon: this.typeScriptImg
       },
       {
-        name: this.angular,
+        name: this.angularLabel,
         icon: this.angularImg
       },
       {
-        name: this.ionic,
+        name: this.ionicLabel,
         icon: this.ionicImg
       },
       {
-        name: this.tailwind,
+        name: this.tailwindLabel,
         icon: this.tailwindImg
       },
       {
-        name: this.capacitor,
+        name: this.capacitorLabel,
         icon: this.capacitorImg
       },
       {
-        name: this.primeNg
+        name: this.primeNgLabel
       },
     ]
   },
@@ -143,22 +156,22 @@ export class HomePage implements OnInit{
     title: this.translateService.instant('home_component.skills_technologies.cards.second_card.title'),
     technologia: [
       {
-        name: this.git,
+        name: this.gitLabel,
         icon: this.gitImg
       },
       {
-        name: this.figma,
+        name: this.figmaLabel,
         icon: this.figmaImg
       },
       {
-        name: this.restApi
+        name: this.restApiLabel
       },
       {
-        name: this.postman,
+        name: this.postmanLabel,
         icon: this.postmanImg
       },
       {
-        name: this.testing,
+        name: this.testingLabel,
         icon: this.testingImg
       },
     ]
@@ -172,33 +185,35 @@ export class HomePage implements OnInit{
     image: this.rickNMortyImg,
     technologia: [
       {
-        name: this.htmlCss
+        name: this.htmlCssLabel
       },
       {
-        name: this.typeScript
+        name: this.typeScriptLabel
       },
       {
-        name: this.angular
+        name: this.angularLabel
       },
       {
-        name: this.ionic
+        name: this.ionicLabel
       },
       {
-        name: this.capacitor
+        name: this.capacitorLabel
       },
       {
-        name: this.tailwind
+        name: this.tailwindLabel
       },
       {
-        name: this.git
+        name: this.gitLabel
       },
       {
-        name: this.figma
+        name: this.figmaLabel
       },
       {
-        name: this.testing
+        name: this.testingLabel
       },
-    ]
+    ],
+    gitUrl: this.rickNMortyGitUrl,
+    projectUrl: this.rickNMortyProjectUrl
   },
   {
     title: this.translateService.instant('home_component.featured_projects.cards.second_card.title'),
@@ -206,30 +221,32 @@ export class HomePage implements OnInit{
     image: this.bookishImg,
     technologia: [
       {
-        name: this.htmlCss
+        name: this.htmlCssLabel
       },
       {
-        name: this.typeScript
+        name: this.typeScriptLabel
       },
       {
-        name: this.angular
+        name: this.angularLabel
       },
       {
-        name: this.ionic
+        name: this.ionicLabel
       },
       {
-        name: this.capacitor
+        name: this.capacitorLabel
       },
       {
-        name: this.tailwind
+        name: this.tailwindLabel
       },
       {
-        name: this.git
+        name: this.gitLabel
       },
       {
-        name: this.figma
+        name: this.figmaLabel
       },
-    ]
+    ],
+    gitUrl: this.bookishGitUrl,
+    projectUrl: this.bookishProjectUrl
   }
  ]
  }
@@ -254,8 +271,17 @@ export class HomePage implements OnInit{
   }
 
   protected onSubmit(): void{
+    console.log(`formulario valido?`, this.contactForm.valid);
+    
     if(this.contactForm.valid){
-      //this.messageOnSubmit = 
+      this.hasBeenSubmit = true;
+      this.hasTriedSubmited = false;
+      this.contactForm.reset();
+      console.log(`formulario VALIDO`);
+      
+    }else{
+      this.hasTriedSubmited = true;
+      console.log(`formulario NO valido`);
     }
   }
 
@@ -274,7 +300,13 @@ export class HomePage implements OnInit{
     ]
   }
 
-  public changeLanguage(langauge: string){
+  protected changeLanguage(langauge: string){
     this.translateService.use(langauge);
   }
+
+  protected navigateTo(url: string){
+    window.open(url);
+  }
+
 }
+

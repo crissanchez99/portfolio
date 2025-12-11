@@ -72,17 +72,24 @@
       "form": {
         "input_name": {
           "label": "Name",
-          "placeholder": "Your name"
+          "placeholder": "Your name",
+          "error_message": "Mandatory field."
         },
         "input_email": {
           "label": "Email",
-          "placeholder": "email@example.com"
+          "placeholder": "email@example.com",
+          "error_message": "Mandatory field."
         },
         "input_message": {
           "label": "Message",
-          "placeholder": "What can I help you with..."
+          "placeholder": "What can I help you with...",
+          "error_message": "Mandatory field."
         },
-        "button_submit": "Send Message"
+        "button_submit": "Send Message",
+        "message_on_submit": {
+          "success_message": "Your message has been sent.",
+          "error_message": "Email not valid."
+        }
       }
     }
 

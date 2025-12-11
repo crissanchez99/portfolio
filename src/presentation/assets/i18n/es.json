@@ -72,20 +72,23 @@
       "form": {
         "input_name": {
           "label": "Nombre",
-          "placeholder": "Escribe aquí..."
+          "placeholder": "Escribe aquí...",
+          "error_message": "Campo obligatorio."
         },
         "input_email": {
           "label": "Email",
-          "placeholder": "email@example.com"
+          "placeholder": "email@example.com",
+          "error_message": "Campo obligatorio."
         },
         "input_message": {
           "label": "Mensaje",
-          "placeholder": "En qué te puedo ayudar..."
+          "placeholder": "En qué te puedo ayudar...",
+          "error_message": "Campo obligatorio."
         },
         "button_submit": "Enviar Mensaje",
         "message_on_submit": {
           "success_message": "Tu mensaje ha sido enviado.",
-          "error_message": ""
+          "error_message": "Email no valido."
         }
       }
     }

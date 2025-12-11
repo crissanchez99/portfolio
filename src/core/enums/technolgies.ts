@@ -11,5 +11,6 @@ export enum Tecnologies{
   figma = 'Figma',
   restApi = 'REST APIs',
   postman = 'Postman',
-  testing = 'Testing JEST'
+  testing = 'Testing JEST',
+  liveDemo = 'Live Demo'
 }

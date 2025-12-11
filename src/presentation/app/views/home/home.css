@@ -98,3 +98,11 @@
   @apply bg-[#132443];
   @apply mr-4;
 }
+
+::ng-deep .buttonCardsFeaturedProjects .p-button .p-button-icon, ::ng-deep .buttonCardsFeaturedProjects .p-button .p-button-label{
+  @apply text-white;
+}
+
+::ng-deep .buttonCardsFeaturedProjects .p-button:hover{
+  @apply bg-[#132443];
+}
