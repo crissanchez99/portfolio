@@ -278,6 +278,7 @@ export class HomePage implements OnInit{
       this.hasTriedSubmited = false;
       this.contactForm.reset();
     }else{
+      this.hasBeenSubmit = false;
       this.hasTriedSubmited = true;
     }
   }

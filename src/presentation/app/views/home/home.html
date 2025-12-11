@@ -185,7 +185,7 @@
             }
           </div>
           <p-button [unstyled]="true" class="bg-[#2B7FFF] p-3 rounded-xl text-white buttonOnSubmit flex justify-center" (click)="onSubmit()">{{'home_component.get_in_touch.form.button_submit' | translate}}</p-button>
-          @if(hasTriedSubmited && !contactForm.invalid){
+          @if(hasBeenSubmit){
             <div class="my-2">
               <p-message [life]="3000" severity="success" size="small" variant="simple" icon="pi pi-check-circle" class="text-xs">{{'home_component.get_in_touch.form.message_on_submit.success_message' | translate}}</p-message>
             </div>
