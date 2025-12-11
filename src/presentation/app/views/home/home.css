@@ -15,30 +15,18 @@
 }
 
 
-.radio{
-  border-radius: 25px;
-}
-
-
 ::ng-deep .about-me-img img{
   width: 78.125rem;
-  height: 22rem;
-  object-fit: cover;
-  border-radius: 1.5rem;
+  @apply h-[22rem];
+  @apply object-cover;
+  @apply rounded-3xl;
 }
 
-::ng-deep .ukFlag img{
-  width: 1.5rem;
-  height: 1.5rem;
-  object-fit: cover;
-  border-radius: 1.5rem;
-}
-
-::ng-deep .spainFlag img{
-  width: 1.5rem;
-  height: 1.5rem;
-  object-fit: cover;
-  border-radius: 1.5rem;
+::ng-deep .flag img{
+  @apply w-6;
+  @apply h-6;
+  @apply object-cover;
+  @apply rounded-3xl;
 }
 
 .chip-language{

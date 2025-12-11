@@ -20,10 +20,10 @@
       "cards": {
         "first_card": {
           "title": "Clean Code",
-          "message": "Aplicar los principios SOLID y la Arquitectura Clean."
+          "message": "Aplicar los principios SOLID y Arquitectura Clean."
         },
         "second_card": {
-          "title": "Pixel Perfect",
+          "title": "Diseño de la App",
           "message": "Implementar diseños de Figma usando Tailwind Css."
         },
         "third_card": {

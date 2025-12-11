@@ -50,6 +50,8 @@ export class HomePage implements OnInit{
   protected testingImg: string = ImagesRutes.testing;
   protected rickNMortyImg: string = ImagesRutes.rickNMorty;
   protected bookishImg: string = ImagesRutes.bookish;
+  protected spainFlagImg: string = ImagesRutes.spainFlag;
+  protected ukFlagImg: string = ImagesRutes.ukFlag;
 
   protected htmlCssLabel = Tecnologies.htmlCss;
   protected typeScriptLabel = Tecnologies.typeScript;
@@ -271,17 +273,12 @@ export class HomePage implements OnInit{
   }
 
   protected onSubmit(): void{
-    console.log(`formulario valido?`, this.contactForm.valid);
-    
     if(this.contactForm.valid){
       this.hasBeenSubmit = true;
       this.hasTriedSubmited = false;
       this.contactForm.reset();
-      console.log(`formulario VALIDO`);
-      
     }else{
       this.hasTriedSubmited = true;
-      console.log(`formulario NO valido`);
     }
   }
 
@@ -289,12 +286,12 @@ export class HomePage implements OnInit{
     this.languages = [
       {
         language: 'es',
-        img: 'assets/images/languages/spain-flag.svg',
+        img: this.spainFlagImg,
         translation: 'languages.es'
       },
       {
         language: 'en',
-        img: 'assets/images/languages/uk-flag.svg',
+        img: this.ukFlagImg,
         translation: 'languages.en'
       }
     ]

@@ -15,4 +15,6 @@ export enum ImagesRutes{
   testing = 'assets/images/jest.svg',
   rickNMorty = 'assets/images/imgRnM.svg',
   bookish = 'assets/images/bookish.png',
+  spainFlag = 'assets/images/languages/spain-flag.svg',
+  ukFlag = 'assets/images/languages/uk-flag.svg'
 }
