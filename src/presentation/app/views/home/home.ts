@@ -98,7 +98,6 @@ export class HomePage implements OnInit{
     })
   }
 
-  //cards ENUM
  private loadCards(){
   this.cardsAboutMe = [
   {
