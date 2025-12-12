@@ -59,8 +59,8 @@
             <i class="pi pi-code text-[#4993EA] w-6 h-6 py-4 px-3 flex justify-center items-center"></i>
           </p-chip>
         </ng-template>
-        <ng-template #title class="text-white">{{card.title}}</ng-template>
-        <p class="text-[#8D9EB6] break-words">{{card.message}}</p>
+        <ng-template #title class="text-white">{{card.title | translate}}</ng-template>
+        <p class="text-[#8D9EB6] break-words">{{card.message | translate}}</p>
       </p-card>
       }
     </div>
@@ -72,7 +72,7 @@
 
       @for (card of cardsSkillsTechnolgies; track $index) {
         <p-card class="w-80 h-auto bg-[#141E32] border border-[#4993EA]">
-        <ng-template #title class="text-white">{{card.title}}</ng-template>
+        <ng-template #title class="text-white">{{card.title | translate}}</ng-template>
         <div class="flex flex-wrap gap-2">
 
           @for (tech of card.technologia; track $index) {
@@ -103,8 +103,8 @@
 
         <div class="flex flex-col min-h-[28rem] justify-between">
           <div>
-            <h3 class="text-white font-semibold text-xl pb-2">{{card.title}}</h3>
-            <p class="text-[#8D9EB6] text-justify break-words">{{card.message}}</p>
+            <h3 class="text-white font-semibold text-xl pb-2">{{card.title | translate}}</h3>
+            <p class="text-[#8D9EB6] text-justify break-words">{{card.message | translate}}</p>
             <div class="py-4 flex flex-wrap gap-4">
               @for (tech of card.technologia; track $index) {
                 <p-tag [value]="tech.name" class="chip-featured-projects"/>
@@ -151,7 +151,7 @@
       </div>
 
       <div class="w-[38.5rem]">
-        <form action="https://formspree.io/f/xpwvjewg" method="post" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="py-2">
             <p class="text-white pb-2">{{'home_component.get_in_touch.form.input_name.label' | translate}}</p>
             <input pInputText formControlName="name" [placeholder]="namePlaceholderForm" class="text-[#8D9EB6] bg-[#1D293D] border border-[#314158] py-3 px-4 rounded-xl w-full"/>
